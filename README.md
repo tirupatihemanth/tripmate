@@ -14,8 +14,8 @@ TODO (20/01/2016):
 
 
 Feature Ideas:  
-1. Consider the optimal path based on opening and closing timings
-2. Suggesting very close places of interest that users may miss out
-3. Consider the amount of time user spends at a place
+1. Consider the optimal path based on opening and closing timings  
+2. Suggesting very close places of interest that users may miss out  
+3. Consider the amount of time user spends at a place  
 
-#
+Try to update this ReadMe particularly with feature ideas
