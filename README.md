@@ -11,3 +11,11 @@ TODO (20/01/2016):
 1. Install Android Studio.
 2. Finish going through the UDACITY tutorial for android by GOOGLE (we will use vogella android tutorials later)  
 3. Learn about Google Map APIs and other relevant GOOGLE APIs we might need.  
+
+
+Feature Ideas:  
+1. Consider the optimal path based on opening and closing timings
+2. Suggesting very close places of interest that users may miss out
+3. Consider the amount of time user spends at a place
+
+#
