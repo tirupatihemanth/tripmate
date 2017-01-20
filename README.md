@@ -8,5 +8,6 @@ v0.1
 3. Another activity showing up the map and highlighting the path that he should take.  
 
 TODO (20/01/2016):  
-1. Finish going through the UDACITY tutorial for android by GOOGLE (we will use vogella android tutorials later)  
-2. Learn about Google Map APIs and other relevant GOOGLE APIs we might need.  
+1. Install Android Studio.
+2. Finish going through the UDACITY tutorial for android by GOOGLE (we will use vogella android tutorials later)  
+3. Learn about Google Map APIs and other relevant GOOGLE APIs we might need.  
