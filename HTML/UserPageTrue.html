@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="commonjs.js"></script>
+  <script type="text/javascript">
+
+    var flag = 0;
+    var map;
+    function addPlaces(lati,longi){
+      // make api call to get POIs here
+
+      console.log(lati);
+      console.log(longi);
+
+       
+      var pyrmont = {lat: -33.866, lng: 151.196};
+
+      console.log(map);
+        var service = new google.maps.places.PlacesService(map);
+        service.textSearch({
+          location: pyrmont,
+          radius: 500,
+          query: 'restaurant'
+        }, callBackNB);
+
+  }
+
+    function newEntry(poi){   
+      console.log("inside newEntry " +poi);
+      var divbox = document.getElementById('POI');
+
+     var div0 = document.createElement('div');
+     var div1 = document.createElement('div');
+     var div2 = document.createElement('span');
+     var div3 = document.createElement('input');
+     var div4 = document.createElement('input');
+
+     div4.type = 'text';
+     div4.className = "form-control";
+     div4.disabled = "true";
+     div4.value = poi.name + ",,,"+poi.id;
+
+     div3.type = 'checkbox';
+
+     div2.className = 'input-group-addon';
+
+     div1.className = ' input-group';
+
+     div0.className = 'col-lg-3';
+     
+
+     div2.appendChild(div3);
+     div1.appendChild(div2);
+     div1.appendChild(div4);
+     
+     div0.appendChild(div1);
+
+     divbox.appendChild(div0);
+
+    }
+
+
+    function callBackNB(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    if(flag == 0){
+      document.getElementById("POI").innerHTML = "";
+    }
+    var div = document.getElementById("POI");
+    while(div.firstChild){
+    div.removeChild(div.firstChild);
+}
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+    //  console.log("place "+place);
+      newEntry(place);
+    }
+    flag = 1;
+  }
+}
+    
+    function placesCallback(){
+
+      var pyrmont = {lat: -33.866, lng: 151.196};
+          
+      var map = new google.maps.Map(document.getElementById('map'), {
+      center: pyrmont,
+      zoom: 15
+    });
+      console.log(map);
+      var input = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+
+    searchBox.addListener('places_changed', function() {
+      var places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+
+      // name and location.
+      places.forEach(function(place) {
+        if (!place.geometry) {
+          alert("Returned place contains no geometry");
+          return;
+        }
+
+        var title = place.name; // get place name
+        var position = place.geometry.location; // get position coordinates
+
+    //    console.log(title+" "+position);
+    //    addPlaces(position.lat(),position.lng());
+      var newPlace = {lat: position.lat(), lng: position.lng()};
+                var service = new google.maps.places.PlacesService(map);
+        service.textSearch({
+          location: newPlace,
+          radius: 500,
+          query: 'restaurant'
+        }, callBackNB);
+      });
+
+    });
+    }
+
+    function checkedPlaces(){
+
+    }
+
+    
+
+  </script>
+  <script async defer 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUrlP2kUW_IyRSpjjrxndWiE9EaQvWVqU&libraries=places&callback=placesCallback">
+  </script>
+<script> 
+function doThis(){
+  var list = ["chennai"];
+  list.push("manali");
+  console.log(list[1]);
+  console.log("My content");
+  doThat(list);
+  
+}
+
+</script>
+</head>
+<body>
+
+<div class="text-center">
+  <h1>Plan your trip</h1>
+  <p></p> 
+</div>
+  
+<div class="container">
+
+<div class = "row">
+<div class = "col-lg-3"></div>
+<div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for cities here...." id="pac-input">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+<div class = "row"></div>
+<div class = "row" id="POI">
+ 
+</div>
+<div class = "row" id = "submit">
+  <div class = "col-lg-9"></div>
+  <div class = "col-lg-3">
+    <button class="btn btn-secondary" type="button" id="submit"><a href="" onclick="javascript:doThis()" id="a">submit</a></button>
+  </div>
+
+</div>
+
+
+<div class = "row" id = "map"></div>
+
+
+</body>
+</html>
+
