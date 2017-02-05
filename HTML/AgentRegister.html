@@ -1,32 +1,43 @@
  <!DOCTYPE html>
 <html>
+<head>
 <title>Agent Register</title>
+</head>
 <body>
 
 <script>
 var limit = 10; // Max places
 var count = 1; // There is 1 place already
+var i=0;
+var j=0;
 
 function addPlace()
 {
 
     // Get the quiz form element
-    
-    var place = document.getElementById('addplace');
-
+    var place = document.getElementById("addplace");
     // Good to do error checking, make sure we managed to get something
     if (place)
     {
         if (count < limit)
         {
             
-            var elems = document.getElementsByClassName('remove');
-        for (int i=0;i<elems.length;i++){
-            elems[i].setAttribute('value') = 'x';
+                    var z = document.getElementById("button" +count.toString());
+                    z.setAttribute('value', 'x');
+                    var x = document.getElementById('button'+count.toString());
+                    x.setAttribute('onclick','javascript: deleteplace(' + count.toString() + ');'); 
         }
             // Create a new <p> element
             var newP = document.createElement('p');
-            newP.insertAdjacentHTML('afterbegin','<input type="text" name="places[]" list="locations" /><input type="button" value="save" class="remove" onclick="javascript: addPlace();"/>');
+            newP.className += "remove";
+          //   newP.insertAdjacentHTML('afterbegin','hehe');
+  
+
+          var id1 = 'place' + (count+1).toString();
+          var id2 = 'button' + (count+1).toString();
+          var temp = '<input type="text" name="places[]" id="'+id1+'" list="locations" />';
+          var f = temp + ' <input type="button" value="save" id = "'+id2+'" onclick="addPlace()"/>';
+        newP.insertAdjacentHTML('afterbegin', f);
 
            
 
@@ -44,12 +55,17 @@ function addPlace()
                 count++;
             }
 
-        }
+        
         else   
         {
             alert('Question limit reached');
         }
     }
+}
+function deleteplace(a){
+    document.getElementById('button'+a.toString()).remove();
+    document.getElementById('place'+a.toString()).remove();
+    
 }
 </script>
 
@@ -67,12 +83,14 @@ function addPlace()
     <p>Cost Per Day</p>
     <input type="number" name="least"/><p>to</p><input type="number" name="highest" /> 
     <br><br>
-    <p>
-    <input type="text" name="places[]" list="locations" />        
-    <input type="button" value="save" class="remove" onclick="javascript: addPlace();"/>
+    <p class="remove">
+    <input type="text" name="places[]" id="place1" list="locations" />      
+    <input type="button" value="save" id = "button1" onclick="addPlace()"/>
     </p>
 
 </form>
     <input type="button" value="Done" />
+    <p id="debug">
+    </p>
 </body>
-</html>
+</html> 
