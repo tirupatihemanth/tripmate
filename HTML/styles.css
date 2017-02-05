@@ -1,0 +1,50 @@
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 300px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 63px;
+    left: 0;
+    background-color: #D3D3D3; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0; /* Place content 60px from the top */
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+#main{
+  margin-left: 350px;
+   /* 100% Full-height */ /* 0 width - change this with JavaScript */
+  /* Stay in place */
+ /* Stay on top */
+  top: 70px;
+  left: 10px;
+  /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 0;
+}
+#border {
+    height: 100%; /* 100% Full-height */
+    width: 50px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 63px;
+    left: 0;
+      margin-left: 300px;
+    background-color: #FFFFF; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0; /* Place content 60px from the top */
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+#b1:target:after{
+  content: " You should do what semantically makes the most sense. In general, div tags are
+	meant to represent some kind of DIVision in the page. If you are simply listing an address it
+	doesn't make sense to do this. I would personally use a
+  at the end of the line which adds a line break without making any kind of semantic statement about your content."
+}
+#b2:target:after{
+  content: "  jslc"
+}#b3:target:after{
+    content: "  bssa"
+}#b4:target:after{
+  content: " xhh"
+}
