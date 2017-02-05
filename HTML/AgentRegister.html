@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+<html>
+<title>Agent Register</title>
+<body>
+
+<script>
+var limit = 10; // Max places
+var count = 1; // There is 1 place already
+
+function addPlace()
+{
+
+    // Get the quiz form element
+    
+    var place = document.getElementById('addplace');
+
+    // Good to do error checking, make sure we managed to get something
+    if (place)
+    {
+        if (count < limit)
+        {
+            
+            var elems = document.getElementsByClassName('remove');
+        for (int i=0;i<elems.length;i++){
+            elems[i].setAttribute('value') = 'x';
+        }
+            // Create a new <p> element
+            var newP = document.createElement('p');
+            newP.insertAdjacentHTML('afterbegin','<input type="text" name="places[]" list="locations" /><input type="button" value="save" class="remove" onclick="javascript: addPlace();"/>');
+
+           
+
+            //dtalist of locations
+            //var DataList = document.getElementById("locations");
+            
+            // Good practice to do error checking
+            if ( newP )   
+            {
+                // Add the new elements to the form
+                place.appendChild(newP);
+                
+                //place.appendChild(DataList);
+                // Increment the count
+                count++;
+            }
+
+        }
+        else   
+        {
+            alert('Question limit reached');
+        }
+    }
+}
+</script>
+
+<datalist id="locations">
+            
+      <option value="Munnar">
+      <option value="Chennai">
+      <option value="tekkedi">
+      <option value="Mahabalipuram">
+      <option value="Mysore"> 
+    </datalist>
+
+<form id="addplace">
+
+    <p>Cost Per Day</p>
+    <input type="number" name="least"/><p>to</p><input type="number" name="highest" /> 
+    <br><br>
+    <p>
+    <input type="text" name="places[]" list="locations" />        
+    <input type="button" value="save" class="remove" onclick="javascript: addPlace();"/>
+    </p>
+
+</form>
+    <input type="button" value="Done" />
+</body>
+</html>
