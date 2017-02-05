@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript">
+  function changeText(id) {
+    var elem=document.getElementById("p"+id);
+    if(elem.style.display=="block"){
+      elem.style.display="none";
+    }
+    else {
+      elem.style.display="block";
+    }
+}
+
+
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2 align="center">Results for Chennai</h2>
+<div id="mySidenav" class="sidenav">
+  <ul class="list-group" >
+    <li class="list-group-item active">Selected Places of Interest</li>
+  <li class="list-group-item">The temple </li>
+  <li class="list-group-item">The beach</li>
+  <li class="list-group-item">The lighthouse</li>
+  <li class="list-group-item">The market</li>
+  </ul>
+
+</div>
+<div id="border"></div>
+
+
+<ul class="list-group" id="main">
+  <li class="list-group-item active">Suggested Tourist Agencies</li>
+<li class="list-group-item justify-content-between"><a id="b1" href="#" onClick="javascript:changeText(1)">The Sahiti Agency for health tips</a><span class="badge badge-default badge-pill">15,000</span> <p id="p1" style="display:none;">You should do what semantically makes theak without maki</p></li>
+<li class="list-group-item justify-content-between"><a id="b2" href="#" onClick="javascript:changeText(2)">The Keerthana Agency for jogging tips</a><span class="badge badge-default badge-pill">15,000</span><p id="p2" style="display:none;">You should do what semantically makes theak without maki</p></li>
+<li class="list-group-item justify-content-between"><a id="b3" href="#" onClick="javascript:changeText(3)">The Swetha Agency for writing tips</a><span class="badge badge-default badge-pill">15,000</span><p id="p3" style="display:none;">You should do what semantically makes theak without maki</p></li>
+<li class="list-group-item justify-content-between"><a id="b4" href="#" onClick="javascript:changeText(4)">The Hemanth Agency for pseud tips</a><span class="badge badge-default badge-pill">15,000</span><p id="p4" style="display:none;">You should do what semantically makes theak without maki</p></li>
+</ul>
+
+</body>
+</html>
